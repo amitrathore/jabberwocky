@@ -26,3 +26,11 @@
      (let [chat (chat-for jid (message-listener-from listener-fn) connection)]
        (.sendMessage chat message))))
 
+(defn add-listener [jid listener-fn]
+  (if-let [c (@CHATS jid)]
+    (.addMessageListener c (message-listener-from listener-fn))))
+
+(defn clear-listeners [jid]
+  (if-let [c (@CHATS jid)]
+    (doseq [l (seq (.getListeners c))]
+      (.removeMessageListener c l))))

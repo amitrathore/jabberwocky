@@ -1,4 +1,4 @@
-(ns org.curry.jabberwocky.client.connection
+(ns org.curry.jabberwocky.connection
   (:import [org.jivesoftware.smack XMPPConnection ConnectionConfiguration]))
 
 (def CONN-DEFAULTS {:host "localhost" :port 5222 :sasl false :compression true})
